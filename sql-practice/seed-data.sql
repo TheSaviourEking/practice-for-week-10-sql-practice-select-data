@@ -3,13 +3,14 @@ DROP TABLE IF EXISTS puppies;
 CREATE TABLE puppies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(100),
-  age_yrs DECIMAL(2,1),
+  age_yrs DECIMAL(2, 1),
   breed VARCHAR(100),
   weight_lbs INT,
   microchipped BOOLEAN
 );
 
-INSERT INTO puppies
+INSERT INTO
+  puppies
 VALUES
   (1, 'Cooper', 1, 'Miniature Schnauzer', 18, 1),
   (2, 'Indie', 0.5, 'Yorkshire Terrier', 13, 1),
@@ -21,3 +22,56 @@ VALUES
   (8, 'Jaxson', 0.4, 'Beagle', 19, 1),
   (9, 'Leinni', 1, 'Miniature Schnauzer', 25, 1),
   (10, 'Max', 1.6, 'German Shepherd', 65, 0);
+
+-- Step 1: Select all rows, all columns
+SELECT
+  *
+FROM
+  puppies;
+
+-- Step 2: Select specific columns
+SELECT
+  name,
+  age_yrs,
+  weight_lbs
+FROM
+  puppies;
+
+-- Step 3: Select one row by its primary key
+SELECT
+  name,
+  age_yrs,
+  weight_lbs
+FROM
+  puppies
+WHERE
+  id = 5;
+
+-- Step 4: Select rows matching a specific value
+SELECT
+  name,
+  age_yrs,
+  weight_lbs
+FROM
+  puppies
+WHERE
+  microchipped = 1;
+
+-- Step 5 INTERMEDIATE: Select rows greater than a value
+SELECT
+  name,
+  age_yrs,
+  weight_lbs
+FROM
+  puppies
+WHERE
+  weight_lbs > 25;
+
+-- Step 6 ADVANCED: Select rows with multiple criteria
+SELECT
+  *
+FROM
+  puppies
+WHERE
+  weight_lbs > 25
+  AND microchipped = 1;
